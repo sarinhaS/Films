@@ -1,0 +1,11 @@
+*{padding: 0;margin: 0;box-sizing: border-box;}
+/* body{background-image: url(iea.jpg); background-repeat: no-repeat; background-size: cover;} */
+nav{display:flex;  justify-content: center; align-items: center; gap: 20px;}
+#btn1, #btn2{width: 100px; height: 80px;  border: 1px solid rgb(51, 255, 0); background-color: transparent;}
+.background-filmes{background-color: blanchedalmond; border: red 1px solid; margin: 20px; padding: 10px;display: flex; justify-content: center; align-items: center; flex-direction: column;}
+#caixa, #caixa1{border: 1px solid blue; display: flex; align-items: center; margin: auto; width: 70%; height: 80%; background-color: rgb(252, 172, 0);}
+img{height: 200px; width: 150px;}
+.botaoseries{padding: 10px;}
+.buttonseries{width: 100px; height: 70px;}
+table, th, td {border: solid 1px red; border-collapse: collapse;}
+th, td {padding: 20px;}

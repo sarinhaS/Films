@@ -1,11 +1,26 @@
-*{padding: 0;margin: 0;box-sizing: border-box;}
-/* body{background-image: url(iea.jpg); background-repeat: no-repeat; background-size: cover;} */
-nav{display:flex;  justify-content: center; align-items: center; gap: 20px;}
+*{padding: 0; box-sizing: border-box;}
+body{background-image: url(1330043.jpeg);  margin: 20px; background-repeat: no-repeat; background-size: cover; display: flex; align-items: center; justify-content: center; flex-direction: column;} 
+
+
 #btn1, #btn2{width: 100px; height: 80px;  border: 1px solid rgb(51, 255, 0); background-color: transparent;}
-.background-filmes{background-color: blanchedalmond; border: red 1px solid; margin: 20px; padding: 10px;display: flex; justify-content: center; align-items: center; flex-direction: column;}
+.background-filmes{background-color: blanchedalmond; border: black 1px solid; margin: 20px; padding: 10px;display: flex; justify-content: center; align-items: center; flex-direction: column;}
 #caixa, #caixa1{border: 1px solid blue; display: flex; align-items: center; margin: auto; width: 70%; height: 80%; background-color: rgb(252, 172, 0);}
 img{height: 200px; width: 150px;}
 .botaoseries{padding: 10px;}
 .buttonseries{width: 100px; height: 70px;}
-table, th, td {border: solid 1px red; border-collapse: collapse;}
+table, th, td {border: solid 1px black; border-collapse: collapse; background-color: rgb(255, 219, 193);}
 th, td {padding: 20px;}
+#botaoadicionar{margin:20px;  display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 10px auto; background-color: chocolate;}
+button{padding:20px}
+#botaoapagar{background-color: rgb(165, 49, 49); border: none; border: solid 1px black}
+#botaoalterar{background-color: greenyellow; border: none; border: solid 1px black}
+#btnGeneros, #btnFilmes{background-color: coral;margin: 20px;}
+#btnfilmesadd{margin-top:  20px; background-color: chocolate; display: flex; justify-content: center ;}
+#nomeGenero{margin: 10px; padding: 10px; background-color: rgba(255, 127, 80, 0.781);}
+#laranja{background-color: rgb(247, 177, 152);}
+#formz{display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 10px;}
+#formz > input{margin: 10px; background-color: rgba(255, 167, 73, 0.781); padding: 10px;}
+#formz > button{margin: 10px; background-color: rgba(162, 219, 40, 0.781); padding: 10px;}
+#formx{display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 10px;}
+#formx > input{margin: 10px; background-color: rgba(255, 167, 73, 0.781); padding: 10px; color: black;}
+#formx > button{margin: 10px; background-color: rgba(162, 219, 40, 0.781); padding: 10px;}

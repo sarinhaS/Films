@@ -21,6 +21,7 @@ const mostraFormAlterarGenero = (idx) => {
 
     const btn = document.createElement('button')
     btn.setAttribute('type', 'button')
+    btn.setAttribute('id', 'botaoalterar')
     btn.innerText = 'Salvar Genêro'
     btn.addEventListener('click', () => {
         generos.splice(idx, 1, {nome: input.value})
@@ -31,6 +32,7 @@ const mostraFormAlterarGenero = (idx) => {
     const btn2 = document.createElement('button')
     btn2.setAttribute('type', 'button')
     btn2.innerText = 'Voltar'
+    btn2.setAttribute('id', 'laranja')
     btn2.addEventListener('click', () => {
         mostraTabelaGeneros()
     })
@@ -110,6 +112,7 @@ const mostraTabelaGeneros = () => {
             // Botão para alterar genêro
             const btn2 = document.createElement('button')
             btn2.setAttribute('type', 'button')
+            btn2.setAttribute('id', 'botaoalterar')
             btn2.innerText = 'Alterar'
             btn2.addEventListener('click', () => {
                 mostraFormAlterarGenero(idx)
@@ -119,6 +122,7 @@ const mostraTabelaGeneros = () => {
             // Botão para remover genêro
             const btn = document.createElement('button')
             btn.setAttribute('type', 'button')
+            btn.setAttribute('id', 'botaoapagar')
             btn.innerText = 'Remover'
             btn.addEventListener('click', () => {
                 generos.splice(idx,1)
@@ -137,6 +141,7 @@ const mostraTabelaGeneros = () => {
 
     const btn = document.createElement('button')
     btn.setAttribute('type', 'button')
+    btn.setAttribute('id', 'botaoadicionar')
     btn.innerText = 'Adicionar novo genêro'
     btn.addEventListener('click', mostraFormNovoGenero)
 
@@ -152,7 +157,11 @@ const formAlterarFilme = (idx) => {
     main.innerText = ''
 
     const filme = filmes[idx]
-    console.log(filme, filmes, idx)
+    console.log(filme)
+    
+    console.log( filmes)
+    
+    console.log(idx)
 
     const form = document.createElement('form')
 
@@ -160,32 +169,43 @@ const formAlterarFilme = (idx) => {
     input1.setAttribute('type', 'text')
     input1.setAttribute('placeholder', 'Entre com o nome do filme')
     input1.setAttribute('id', 'nomeFilme')
-    input1.setAttribute('value', filme[idx].nome)
-    const input2 = document.createElement('input')
-    input2.setAttribute('type', 'text')
-    input2.setAttribute('placeholder', 'Entre com o ano do filme')
-    input2.setAttribute('id', 'anoFilme')
-    input2.setAttribute('value', filme[idx].ano)
+    input1.setAttribute('value', filme.nome)
+    var select = document.createElement('select')
+    var data = new Date()
+    var ano = data.getFullYear()
+    for (var i = ano - 4; i <= ano + 3; i++) {
+      var option = document.createElement('option')
+      option.value = option.innerHTML = i
+      if (i === ano) option.selected = true
+      select.appendChild(option);
+    }
+    option.setAttribute('value', filme.ano)
     const input3 = document.createElement('input')
     input3.setAttribute('type', 'text')
     input3.setAttribute('placeholder', 'Entre com o genêro do filme')
     input3.setAttribute('id', 'generoFilme')
-    input3.setAttribute('value', filme[idx].genero)
+    input3.setAttribute('value', filme.genero)
 
     form.appendChild(input1)
-    form.appendChild(input2)
+    form.appendChild(select)
     form.appendChild(input3)
 
-    const btn = document.createElement('button')
-    btn.setAttribute('type', 'button')
-    btn.innerText = 'Salvar Genêro'
-    btn.addEventListener('click', () => {
-        filmes.splice(idx, 1, {nome: input1.value})
-        filmes.splice(idx, 1, {ano: input2.value})
-        filmes.splice(idx, 1, {genero: input3.value})
+    form.setAttribute('id', 'formz')
+
+    const btnf = document.createElement('button')
+    btnf.setAttribute('type', 'button')
+    btnf.innerText = 'Salvar filme'
+    btnf.addEventListener('click', () => {
+        let x = {
+            nome: input1.value,
+            ano: select.value,
+            genero: input3.value
+        }
+        filmes.splice(idx, 1, x)
+        console.log(x, filmes)
         mostraTabelaFilmes()
     })
-    form.appendChild(btn)
+    form.appendChild(btnf)
 
     const btn2 = document.createElement('button')
     btn2.setAttribute('type', 'button')
@@ -204,30 +224,37 @@ const formNovoFilme = () => {
     const form = document.createElement('form')
 
     const input1 = document.createElement('input')
-    const input2 = document.createElement('input')
     const input3 = document.createElement('input')
 
     input1.setAttribute('type', 'text')
     input1.setAttribute('placeholder', 'Nome do filme')
     input1.setAttribute('id', 'nomeFilme')
 
-    input2.setAttribute('type', 'text')
-    input2.setAttribute('placeholder', 'Ano')
-    input2.setAttribute('id', 'anoFilme')
+    var select = document.createElement('select')
+    var data = new Date()
+    var ano = data.getFullYear()
+    for (var i = ano - 9; i <= ano + 7; i++) {
+        var option = document.createElement('option')
+        option.value = option.innerHTML = i
+        if (i === ano) option.selected = true
+        select.appendChild(option)
+    }
 
     input3.setAttribute('type', 'text')
     input3.setAttribute('placeholder', 'Gênero')
     input3.setAttribute('id', 'generoFilme')
 
     form.appendChild(input1)
-    form.appendChild(input2)
+    form.appendChild(select)
     form.appendChild(input3)
+
+    form.setAttribute('id', 'formx')
 
     const btn = document.createElement('button')
     btn.setAttribute('type', 'button')
     btn.innerText = 'Salvar filme'
     btn.addEventListener('click', () => {
-        const filme = {nome: input1.value, ano: input2.value, genero: input3.value}
+        const filme = {nome: input1.value, ano: select.value, genero: input3.value}
         filmes.push(filme)
         mostraTabelaFilmes()
     })
@@ -279,6 +306,7 @@ const mostraTabelaFilmes = () => {
         const btnAlterarFilme = document.createElement('button')
         btnAlterarFilme.setAttribute('type', 'button')
         btnAlterarFilme.innerText = 'Alterar'
+        btnAlterarFilme.setAttribute('id', 'botaoalterar')
 
         tr.appendChild(td1)
         tr.appendChild(td2)
@@ -288,7 +316,7 @@ const mostraTabelaFilmes = () => {
 
             // Botão para alterar filme
             btnAlterarFilme.addEventListener('click', () => {
-               formAlterarFilme()
+               formAlterarFilme(idx)
             })
             
             tr.appendChild(btnAlterarFilme)
@@ -296,11 +324,12 @@ const mostraTabelaFilmes = () => {
             // Botão para remover filme
             const btn = document.createElement('button')
             btn.setAttribute('type', 'button')
+            btn.setAttribute('id', 'botaoapagar')
             btn.innerText = 'Remover'
             btn.addEventListener('click', () => {
-                //generos.splice(idx,1)
-                //tbody.removeChild(tr)
-                //mostraTabelaGeneros()
+                filmes.splice(idx,1)
+                
+                mostraTabelaFilmes()
             })
 
         
@@ -311,6 +340,7 @@ const mostraTabelaFilmes = () => {
     const btn = document.createElement('button')
     btn.setAttribute('type', 'button')
     btn.innerText = 'Adicionar novo filme'
+    btn.setAttribute('id', 'btnfilmesadd')
     btn.addEventListener('click', formNovoFilme)
 
     table.appendChild(tbody)
